@@ -1,14 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, BarChart2, Bell, PieChart } from "lucide-react";
+import { Home, ShoppingCart, Box, BookLock } from "lucide-react";
 
 const Sidebar = () => {
   const location = useLocation();
 
   const navItems = [
     { name: "Dashboard", icon: Home, path: "/" },
-    { name: "Add Item", icon: BarChart2, path: "/addItems" },
-    { name: "Add Invetory", icon: Bell, path: "/addInventory" },
-    { name: "POS", icon: PieChart, path: "/POS" },
+    { name: "Add Item", icon: ShoppingCart, path: "/addItems" },
+    { name: "Add Invetory", icon: Box, path: "/add" },
+    { name: "POS", icon: BookLock, path: "/POS" },
   ];
 
   return (
