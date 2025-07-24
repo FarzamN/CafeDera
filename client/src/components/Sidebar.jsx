@@ -1,5 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, ShoppingCart, Box, BookLock } from "lucide-react";
+import {
+  Home,
+  Box,
+  BookLock,
+  ShoppingCart,
+  BadgeDollarSign,
+} from "lucide-react";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -7,7 +13,8 @@ const Sidebar = () => {
   const navItems = [
     { name: "Dashboard", icon: Home, path: "/" },
     { name: "Add Item", icon: ShoppingCart, path: "/addItems" },
-    { name: "Add Invetory", icon: Box, path: "/add" },
+    { name: "Add Order", icon: BadgeDollarSign, path: "/addOrder" },
+    { name: "Add Invetory", icon: Box, path: "/addInventory" },
     { name: "POS", icon: BookLock, path: "/POS" },
   ];
 

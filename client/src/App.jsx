@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import AddItems from "./pages/AddItems";
 import AddInventory from "./pages/AddInventory";
+import AddOrder from "./pages/AddOrder";
 import POS from "./pages/POS";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/addItems" element={<AddItems />} />
+            <Route path="/addOrder" element={<AddOrder />} />
 
             <Route path="/addInventory" element={<AddInventory />} />
             <Route path="/POS" element={<POS />} />
