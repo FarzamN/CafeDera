@@ -6,4 +6,4 @@ const orderRoute = Router();
 orderRoute.get("/getOrder", getOrder);
 orderRoute.post("/addOrder", addOrder);
 
-export default orderRoute;
+export default orderRoute; 

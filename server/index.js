@@ -6,6 +6,7 @@ import { DBConnection } from "./src/utils/index.js";
 import itemRoute from "./src/router/items.route.js";
 import inventoryRoute from "./src/router/inventory.route.js";
 import orderRoute from "./src/router/order.route.js";
+import posRoute from "./src/router/pos.route.js";
 
 config();
 DBConnection();
@@ -21,6 +22,7 @@ app.get("/", (_, res) => {
 app.use("/api", itemRoute);
 app.use("/api", inventoryRoute);
 app.use("/api", orderRoute);
+app.use("/api", posRoute);
 
 const PORT = 5000;
 app.listen(PORT, () =>
