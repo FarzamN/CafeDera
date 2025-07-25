@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getItemAPI } from "../apis/itemAPI";
 import EditModal from "../components/editModal";
 import DeleteModal from "../components/deleteModal";
 import { addOrderAPI } from "../apis/orderAPI";
+import { useReactToPrint } from "react-to-print";
 
 const AddOrder = () => {
   const [selectedItem, setSelectedItem] = useState("");
@@ -51,14 +52,26 @@ const AddOrder = () => {
     setDeleteModal({ open: false, item: null });
   };
 
+    const contentRef = useRef(null);
+const handlePrint = useReactToPrint({ contentRef });
+
+
+// const handlePrint = useReactToPrint({
+//   content: () => printRef.current,
+//   documentTitle: 'Order Summary',
+// });
+
+
   const handlePlaceOrder = () => {
-    addOrderAPI(orderItems);
+    addOrderAPI(orderItems,setOrderItems);
   };
 
   const totalPrice = orderItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+
 
   return (
     <div className="p-6">
@@ -101,7 +114,7 @@ const AddOrder = () => {
 
       {/* Order Table */}
       {orderItems.length > 0 && (
-        <>
+        <div ref={contentRef}>
           <table className="w-full border-collapse mb-4">
             <thead>
               <tr className="bg-gray-200 text-left">
@@ -165,11 +178,17 @@ const AddOrder = () => {
             >
               Place Order
             </button>
+            <button
+        onClick={handlePrint}
+        className="bg-gray-700 text-white px-6 py-2 rounded"
+      >
+        Print Order
+      </button>
             <div className="text-lg font-semibold mb-4">
               Total: Rs. {totalPrice}
             </div>
           </div>
-        </>
+       </div>
       )}
 
       {/* Edit Modal */}

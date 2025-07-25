@@ -9,7 +9,7 @@ export const getOrderAPI = (setItems) => {
   });
 };
 
-export const addOrderAPI = (data) => {
+export const addOrderAPI = (data,setOrderItems) => {
   data.map((item) => {
     apiRequest({
       data: {
@@ -18,7 +18,9 @@ export const addOrderAPI = (data) => {
       },
       method: "post",
       endpoint: "addOrder",
-      onSuccess: () => {},
+      onSuccess: () => {
+        setOrderItems([])
+      },
     });
   });
 };
